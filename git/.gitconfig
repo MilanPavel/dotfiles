@@ -1,0 +1,23 @@
+[user]
+    name = Milan Pavel
+    email = milan.pavel@workday.com
+	signingkey = 1CD41287C3CFBEA2
+[commit]
+	gpgsign = true
+[gpg]
+    program = gpg
+[alias]
+    alias = !git config --list | grep alias
+    co = !sh -c 'git checkout $(git branch --all | fzf | tr -d ‘[:space:]’)' -
+    cob = checkout -b
+    cm = commit -a -m
+    del = branch -D
+    done = !git push origin HEAD
+    lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev    -commit -30
+    last = log -1 HEAD --stat
+    br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:gre    en)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+    res = !git reset --hard
+    s = status
+    sl = stash list
+    ss = stash save --include-untracked
+    sa = "!sh -c 'git stash apply stash@{$1}' -"
